@@ -15,7 +15,6 @@ interface WeatherData {
     temperature2m: Float32Array;
     relativeHumidity2m: Float32Array;
     apparentTemperature: Float32Array;
-    windSpeed10m: Float32Array;
   };
 }
 
@@ -47,7 +46,6 @@ function Weather() {
         "temperature_2m",
         "relative_humidity_2m",
         "apparent_temperature",
-        "wind_speed_10m",
       ],
     };
     const url = "https://api.open-meteo.com/v1/forecast";
@@ -73,9 +71,10 @@ function Weather() {
           temperature2m: hourly.variables(0)!.valuesArray()!,
           relativeHumidity2m: hourly.variables(1)!.valuesArray()!,
           apparentTemperature: hourly.variables(2)!.valuesArray()!,
-          windSpeed10m: hourly.variables(4)!.valuesArray()!,
         },
       };
+
+      console.log(weatherData);
 
       setWeatherData(weatherData);
     }
@@ -127,15 +126,6 @@ function Weather() {
                       })}
                     </Typography>
                     <br />
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      {LL.WIND({
-                        windSpeed: weatherData.hourly.windSpeed10m[i],
-                      })}
-                    </Typography>
                   </>
                 }
               />
