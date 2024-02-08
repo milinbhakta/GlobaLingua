@@ -8,6 +8,7 @@ const en: BaseTranslation = {
   TEMPERATURE: "Temperature: {temperature:Float32Array}°C",
   HUMIDITY: "Humidity: {humidity:Float32Array}%",
   APPARENT_TEMPERATURE: "Apparent Temperature: {apparentTemperature:Float32Array}°C",
+  WIND: "Wind: {windSpeed:Float32Array} m/s",
 };
 
 export default en;

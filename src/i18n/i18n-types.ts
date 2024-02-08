@@ -48,6 +48,11 @@ type RootTranslation = {
 	 * @param {Float32Array} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature'>
+	/**
+	 * W​i​n​d​:​ ​{​w​i​n​d​S​p​e​e​d​}​ ​m​/​s
+	 * @param {Float32Array} windSpeed
+	 */
+	WIND: RequiredParams<'windSpeed'>
 }
 
 export type TranslationFunctions = {
@@ -79,6 +84,10 @@ export type TranslationFunctions = {
 	 * Apparent Temperature: {apparentTemperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
+	/**
+	 * Wind: {windSpeed} m/s
+	 */
+	WIND: (arg: { windSpeed: Float32Array }) => LocalizedString
 }
 
 export type Formatters = {}

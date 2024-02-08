@@ -8,6 +8,7 @@ const de: Translation = {
   TEMPERATURE: "Temperatur: {temperature}°C",
   HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
   APPARENT_TEMPERATURE: "Gefühlte Temperatur: {apparentTemperature}°C",
+  WIND: "Wind: {windSpeed} m/s",
 };
 
 export default de;
