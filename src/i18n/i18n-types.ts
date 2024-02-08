@@ -2,6 +2,8 @@
 /* eslint-disable */
 import type { BaseTranslation as BaseTranslationType, LocalizedString, RequiredParams } from 'typesafe-i18n'
 
+import type { Float32Array } from './custom-types'
+
 export type BaseTranslation = BaseTranslationType
 export type BaseLocale = 'en'
 
@@ -15,68 +17,58 @@ export type Translations = RootTranslation
 
 type RootTranslation = {
 	/**
-	 * c​h​o​o​s​e​ ​l​o​c​a​l​e​.​.​.
+	 * C​h​o​o​s​e​ ​L​o​c​a​l​e
 	 */
 	CHOOSE_LOCALE: string
 	/**
-	 * H​e​l​l​o​ ​{​n​a​m​e​}​!
-	 * @param {string} name
+	 * W​e​a​t​h​e​r​ ​A​p​p
 	 */
-	HI: RequiredParams<'name'>
+	APPNAME: string
 	/**
-	 * E​d​i​t​ ​<​c​o​d​e​>​s​r​c​/​A​p​p​.​t​s​x​<​/​c​o​d​e​>​ ​a​n​d​ ​s​a​v​e​ ​t​o​ ​r​e​l​o​a​d​.
+	 * H​o​u​r​l​y​ ​W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t
 	 */
-	EDIT_AND_SAVE: string
+	HOURLY_WEATHER_FORECAST: string
 	/**
-	 * L​e​a​r​n​ ​R​e​a​c​t
+	 * T​i​m​e​:
 	 */
-	LEARN_REACT: string
+	TIME_LABEL: string
 	/**
-	 * Y​o​u​r​ ​n​a​m​e​:
+	 * T​e​m​p​e​r​a​t​u​r​e​:​ ​{​t​e​m​p​e​r​a​t​u​r​e​}​°​C
+	 * @param {Float32Array} temperature
 	 */
-	YOUR_NAME: string
+	TEMPERATURE: RequiredParams<'temperature'>
 	/**
-	 * S​e​l​e​c​t​e​d​ ​l​o​c​a​l​e​:
+	 * H​u​m​i​d​i​t​y​:​ ​{​h​u​m​i​d​i​t​y​}​%
+	 * @param {Float32Array} humidity
 	 */
-	SELECTED_LOCALE: string
-	/**
-	 * T​o​d​a​y​ ​i​s​ ​{​d​a​t​e​|​w​e​e​k​d​a​y​}
-	 * @param {Date} date
-	 */
-	TODAY: RequiredParams<'date|weekday'>
+	HUMIDITY: RequiredParams<'humidity'>
 }
 
 export type TranslationFunctions = {
 	/**
-	 * choose locale...
+	 * Choose Locale
 	 */
 	CHOOSE_LOCALE: () => LocalizedString
 	/**
-	 * Hello {name}!
+	 * Weather App
 	 */
-	HI: (arg: { name: string }) => LocalizedString
+	APPNAME: () => LocalizedString
 	/**
-	 * Edit <code>src/App.tsx</code> and save to reload.
+	 * Hourly Weather Forecast
 	 */
-	EDIT_AND_SAVE: () => LocalizedString
+	HOURLY_WEATHER_FORECAST: () => LocalizedString
 	/**
-	 * Learn React
+	 * Time:
 	 */
-	LEARN_REACT: () => LocalizedString
+	TIME_LABEL: () => LocalizedString
 	/**
-	 * Your name:
+	 * Temperature: {temperature}°C
 	 */
-	YOUR_NAME: () => LocalizedString
+	TEMPERATURE: (arg: { temperature: Float32Array }) => LocalizedString
 	/**
-	 * Selected locale:
+	 * Humidity: {humidity}%
 	 */
-	SELECTED_LOCALE: () => LocalizedString
-	/**
-	 * Today is {date|weekday}
-	 */
-	TODAY: (arg: { date: Date }) => LocalizedString
+	HUMIDITY: (arg: { humidity: Float32Array }) => LocalizedString
 }
 
-export type Formatters = {
-	weekday: (value: Date) => unknown
-}
+export type Formatters = {}

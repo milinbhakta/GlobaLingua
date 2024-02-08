@@ -1,6 +1,13 @@
-import { ListItem, Typography, List, ListItemText, styled } from "@mui/material";
+import {
+  ListItem,
+  Typography,
+  List,
+  ListItemText,
+  styled,
+} from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
+import { useI18nContext } from "../i18n/i18n-react";
 
 interface WeatherData {
   hourly: {
@@ -23,6 +30,7 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 }));
 
 function Weather() {
+  const { LL } = useI18nContext();
   // Helper function to form time ranges
   const range = (start: number, stop: number, step: number) =>
     Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
@@ -69,14 +77,14 @@ function Weather() {
   return (
     <div>
       <Typography variant="h5" gutterBottom>
-        Hourly Weather Forecast
+        {LL.HOURLY_WEATHER_FORECAST()}
       </Typography>
       <List>
         {weatherData &&
           weatherData.hourly.time.map((time, i) => (
             <StyledListItem key={i}>
               <ListItemText
-                primary={`Time: ${time.toISOString()}`}
+                primary={`${LL.TIME_LABEL()} ${time.toISOString()}`}
                 secondary={
                   <>
                     <Typography
@@ -84,7 +92,9 @@ function Weather() {
                       variant="body2"
                       color="textPrimary"
                     >
-                      Temperature: {weatherData.hourly.temperature2m[i]}°C
+                      {LL.TEMPERATURE({
+                        temperature: weatherData.hourly.temperature2m[i],
+                      })}
                     </Typography>
                     <br />
                     <Typography
@@ -92,7 +102,9 @@ function Weather() {
                       variant="body2"
                       color="textPrimary"
                     >
-                      Humidity: {weatherData.hourly.relativeHumidity2m[i]}%
+                      {LL.HUMIDITY({
+                        humidity: weatherData.hourly.relativeHumidity2m[i],
+                      })}
                     </Typography>
                   </>
                 }

@@ -1,14 +1,12 @@
 import type { Translation } from "../i18n-types";
 
 const de: Translation = {
-  CHOOSE_LOCALE: "Sprache auswählen...",
-  HI: "Hallo {name}!",
-  EDIT_AND_SAVE:
-    "Bearbeite und speicher <code>src/App.tsx</code> um neu zu laden.",
-  LEARN_REACT: "Lerne React",
-  YOUR_NAME: "Dein Name:",
-  SELECTED_LOCALE: "Ausgewählte Sprache:",
-  TODAY: "Heute ist {date|weekday}",
+  CHOOSE_LOCALE: "Sprache auswählen",
+  APPNAME: "Wetter App",
+  HOURLY_WEATHER_FORECAST: "Stündliche Wettervorhersage",
+  TIME_LABEL: "Zeit:",
+  TEMPERATURE: "Temperatur: {temperature}°C",
+  HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
 };
 
 export default de;
