@@ -7,6 +7,7 @@ const de: Translation = {
   TIME_LABEL: "Zeit:",
   TEMPERATURE: "Temperatur: {temperature}°C",
   HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
+  APPARENT_TEMPERATURE: "Gefühlte Temperatur: {apparentTemperature}°C",
 };
 
 export default de;

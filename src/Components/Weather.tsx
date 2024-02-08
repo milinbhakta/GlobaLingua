@@ -14,6 +14,9 @@ interface WeatherData {
     time: Date[];
     temperature2m: Float32Array;
     relativeHumidity2m: Float32Array;
+    apparentTemperature: Float32Array;
+    windSpeed10m: Float32Array;
+    windDirection10m: Float32Array;
   };
 }
 
@@ -41,7 +44,13 @@ function Weather() {
     const params = {
       latitude: 52.52,
       longitude: 13.41,
-      hourly: ["temperature_2m", "relative_humidity_2m"],
+      hourly: [
+        "temperature_2m",
+        "relative_humidity_2m",
+        "apparent_temperature",
+        "wind_speed_10m",
+        "wind_direction_10m",
+      ],
     };
     const url = "https://api.open-meteo.com/v1/forecast";
 
@@ -65,6 +74,9 @@ function Weather() {
           ).map((t) => new Date((t + utcOffsetSeconds) * 1000)),
           temperature2m: hourly.variables(0)!.valuesArray()!,
           relativeHumidity2m: hourly.variables(1)!.valuesArray()!,
+          apparentTemperature: hourly.variables(2)!.valuesArray()!,
+          windSpeed10m: hourly.variables(4)!.valuesArray()!,
+          windDirection10m: hourly.variables(5)!.valuesArray()!,
         },
       };
 
@@ -106,6 +118,18 @@ function Weather() {
                         humidity: weatherData.hourly.relativeHumidity2m[i],
                       })}
                     </Typography>
+                    <br />
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      color="textPrimary"
+                    >
+                      {LL.APPARENT_TEMPERATURE({
+                        apparentTemperature:
+                          weatherData.hourly.apparentTemperature[i],
+                      })}
+                    </Typography>
+                    <br />
                   </>
                 }
               />

@@ -43,6 +43,11 @@ type RootTranslation = {
 	 * @param {Float32Array} humidity
 	 */
 	HUMIDITY: RequiredParams<'humidity'>
+	/**
+	 * A​p​p​a​r​e​n​t​ ​T​e​m​p​e​r​a​t​u​r​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​}​°​C
+	 * @param {Float32Array} apparentTemperature
+	 */
+	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature'>
 }
 
 export type TranslationFunctions = {
@@ -70,6 +75,10 @@ export type TranslationFunctions = {
 	 * Humidity: {humidity}%
 	 */
 	HUMIDITY: (arg: { humidity: Float32Array }) => LocalizedString
+	/**
+	 * Apparent Temperature: {apparentTemperature}°C
+	 */
+	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
 }
 
 export type Formatters = {}

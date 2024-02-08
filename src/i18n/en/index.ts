@@ -7,6 +7,7 @@ const en: BaseTranslation = {
   TIME_LABEL: "Time:",
   TEMPERATURE: "Temperature: {temperature:Float32Array}°C",
   HUMIDITY: "Humidity: {humidity:Float32Array}%",
+  APPARENT_TEMPERATURE: "Apparent Temperature: {apparentTemperature:Float32Array}°C",
 };
 
 export default en;
