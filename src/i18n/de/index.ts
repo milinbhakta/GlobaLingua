@@ -1,8 +1,14 @@
-import type { Translation } from '../i18n-types.js'
+import type { Translation } from "../i18n-types";
 
-const de = {
-	// this is an example Translation, just rename or delete this folder if you want
-	HI: 'Hallo {name}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt: https://github.com/ivanhofer/typesafe-i18n',
-} satisfies Translation
+const de: Translation = {
+  CHOOSE_LOCALE: "Sprache auswählen...",
+  HI: "Hallo {name}!",
+  EDIT_AND_SAVE:
+    "Bearbeite und speicher <code>src/App.tsx</code> um neu zu laden.",
+  LEARN_REACT: "Lerne React",
+  YOUR_NAME: "Dein Name:",
+  SELECTED_LOCALE: "Ausgewählte Sprache:",
+  TODAY: "Heute ist {date|weekday}",
+};
 
-export default de
+export default de;

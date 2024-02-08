@@ -1,8 +1,13 @@
-import type { BaseTranslation } from '../i18n-types.js'
+import type { BaseTranslation } from "../i18n-types";
 
-const en = {
-	// TODO: your translations go here
-	HI: 'Hi {name:string}! Please leave a star if you like this project: https://github.com/ivanhofer/typesafe-i18n',
-} satisfies BaseTranslation
+const en: BaseTranslation = {
+  CHOOSE_LOCALE: "choose locale...",
+  HI: "Hello {name:string}!",
+  EDIT_AND_SAVE: "Edit <code>src/App.tsx</code> and save to reload.",
+  LEARN_REACT: "Learn React",
+  YOUR_NAME: "Your name:",
+  SELECTED_LOCALE: "Selected locale:",
+  TODAY: "Today is {date:Date|weekday}",
+};
 
-export default en
+export default en;
