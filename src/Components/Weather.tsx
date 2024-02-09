@@ -39,9 +39,10 @@ function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherData>();
 
   useEffect(() => {
+    // Weather for Charlottetown, PE, Canada
     const params = {
-      latitude: 52.52,
-      longitude: 13.41,
+      latitude: 46.23525,
+      longitude: -63.12671,
       hourly: [
         "temperature_2m",
         "relative_humidity_2m",
@@ -93,7 +94,7 @@ function Weather() {
             <Grid item xs={14} sm={8} md={5} lg={4} key={i}>
               <StyledListItem>
                 <ListItemText
-                  primary={`${LL.TIME_LABEL({ time: time})}`}
+                  primary={`${LL.TIME_LABEL({ time: time })}`}
                   secondary={
                     <>
                       <Typography
