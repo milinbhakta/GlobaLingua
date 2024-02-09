@@ -29,9 +29,9 @@ type RootTranslation = {
 	 */
 	APPNAME: string
 	/**
-	 * H​o​u​r​l​y​ ​W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t​ ​f​o​r​ ​C​h​a​r​l​o​t​t​e​t​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
+	 * W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t​ ​f​o​r​ ​C​h​a​r​l​o​t​t​e​t​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
 	 */
-	HOURLY_WEATHER_FORECAST: string
+	WEATHER_FORECAST: string
 	/**
 	 * T​i​m​e​:​ ​{​t​i​m​e​|​t​i​m​e​}
 	 * @param {Date} time
@@ -64,9 +64,9 @@ export type TranslationFunctions = {
 	 */
 	APPNAME: () => LocalizedString
 	/**
-	 * Hourly Weather Forecast for Charlottetown, PEI, Canada
+	 * Weather Forecast for Charlottetown, PEI, Canada
 	 */
-	HOURLY_WEATHER_FORECAST: () => LocalizedString
+	WEATHER_FORECAST: () => LocalizedString
 	/**
 	 * Time: {time|time}
 	 */

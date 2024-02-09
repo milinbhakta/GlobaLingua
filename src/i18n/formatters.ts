@@ -7,9 +7,8 @@ export const initFormatters: FormattersInitializer<Locales, Formatters> = (
   const formatters: Formatters = {
     time: (date: Date) =>
       new Intl.DateTimeFormat(locale, {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
+        dateStyle: "full",
+        timeStyle: "short",
       }).format(date),
     temperature: (value: number) =>
       new Intl.NumberFormat(locale, {
