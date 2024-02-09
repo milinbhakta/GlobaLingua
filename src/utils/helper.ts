@@ -10,6 +10,8 @@ export const getLocalName = (locale: string) => {
       return "Italian";
     case "hi":
       return "Hindi";
+    case "ja":
+      return "Japanese";
     default:
       return "English";
   }
