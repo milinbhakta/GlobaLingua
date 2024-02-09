@@ -1,9 +1,9 @@
 import {
   ListItem,
   Typography,
-  List,
   ListItemText,
   styled,
+  Grid,
 } from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
@@ -87,51 +87,53 @@ function Weather() {
       <Typography variant="h5" gutterBottom>
         {LL.HOURLY_WEATHER_FORECAST()}
       </Typography>
-      <List>
+      <Grid container spacing={3}>
         {weatherData &&
           weatherData.hourly.time.map((time, i) => (
-            <StyledListItem key={i}>
-              <ListItemText
-                primary={`${LL.TIME_LABEL()} ${time.toISOString()}`}
-                secondary={
-                  <>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      {LL.TEMPERATURE({
-                        temperature: weatherData.hourly.temperature2m[i],
-                      })}
-                    </Typography>
-                    <br />
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      {LL.HUMIDITY({
-                        humidity: weatherData.hourly.relativeHumidity2m[i],
-                      })}
-                    </Typography>
-                    <br />
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      {LL.APPARENT_TEMPERATURE({
-                        apparentTemperature:
-                          weatherData.hourly.apparentTemperature[i],
-                      })}
-                    </Typography>
-                    <br />
-                  </>
-                }
-              />
-            </StyledListItem>
+            <Grid item xs={14} sm={8} md={5} lg={4} key={i}>
+              <StyledListItem>
+                <ListItemText
+                  primary={`${LL.TIME_LABEL({ time: time})}`}
+                  secondary={
+                    <>
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                      >
+                        {LL.TEMPERATURE({
+                          temperature: weatherData.hourly.temperature2m[i],
+                        })}
+                      </Typography>
+                      <br />
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                      >
+                        {LL.HUMIDITY({
+                          humidity: weatherData.hourly.relativeHumidity2m[i],
+                        })}
+                      </Typography>
+                      <br />
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                      >
+                        {LL.APPARENT_TEMPERATURE({
+                          apparentTemperature:
+                            weatherData.hourly.apparentTemperature[i],
+                        })}
+                      </Typography>
+                      <br />
+                    </>
+                  }
+                />
+              </StyledListItem>
+            </Grid>
           ))}
-      </List>
+      </Grid>
     </div>
   );
 }

@@ -30,9 +30,10 @@ type RootTranslation = {
 	 */
 	HOURLY_WEATHER_FORECAST: string
 	/**
-	 * T​i​m​e​:
+	 * T​i​m​e​:​ ​{​t​i​m​e​|​t​i​m​e​}
+	 * @param {Date} time
 	 */
-	TIME_LABEL: string
+	TIME_LABEL: RequiredParams<'time|time'>
 	/**
 	 * T​e​m​p​e​r​a​t​u​r​e​:​ ​{​t​e​m​p​e​r​a​t​u​r​e​}​°​C
 	 * @param {Float32Array} temperature
@@ -64,9 +65,9 @@ export type TranslationFunctions = {
 	 */
 	HOURLY_WEATHER_FORECAST: () => LocalizedString
 	/**
-	 * Time:
+	 * Time: {time|time}
 	 */
-	TIME_LABEL: () => LocalizedString
+	TIME_LABEL: (arg: { time: Date }) => LocalizedString
 	/**
 	 * Temperature: {temperature}°C
 	 */
@@ -81,4 +82,6 @@ export type TranslationFunctions = {
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
 }
 
-export type Formatters = {}
+export type Formatters = {
+	time: (value: Date) => unknown
+}
