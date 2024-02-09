@@ -8,6 +8,7 @@ const hi: Translation = {
   TEMPERATURE: "तापमान: {temperature|temperature}°C",
   HUMIDITY: "नमी: {humidity}%",
   APPARENT_TEMPERATURE: "ऐसा लगता है: {apparentTemperature|temperature}°C",
+  WEATHER: "मौसम:",
   WMOWeatherCodes: {
     0: "साफ आसमान",
     1: "मुख्य रूप से साफ",

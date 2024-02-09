@@ -143,7 +143,7 @@ function Weather() {
                       })}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Weather code:{" "}
+                      {LL.WEATHER()}
                       {getWeatherCodeDescription(
                         weatherData.hourly.weatherCode[index]
                       )}

@@ -9,6 +9,7 @@ const en: BaseTranslation = {
   HUMIDITY: "Humidity: {humidity:Float32Array}%",
   APPARENT_TEMPERATURE:
     "Feels Like: {apparentTemperature:Float32Array|temperature}°C",
+  WEATHER: "Weather:",
   WMOWeatherCodes: {
     0: "Clear sky",
     1: "Mainly clear",

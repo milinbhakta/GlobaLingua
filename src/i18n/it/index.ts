@@ -9,6 +9,7 @@ const it: Translation = {
   HUMIDITY: "Umidità: {humidity}%",
   APPARENT_TEMPERATURE:
     "Sembra: {apparentTemperature|temperature}°C",
+  WEATHER: "Meteo:",
   WMOWeatherCodes: {
     0: "Cielo sereno",
     1: "Prevalentemente sereno",

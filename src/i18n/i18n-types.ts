@@ -52,6 +52,10 @@ type RootTranslation = {
 	 * @param {Float32Array} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
+	/**
+	 * W​e​a​t​h​e​r​:
+	 */
+	WEATHER: string
 	WMOWeatherCodes: {
 		/**
 		 * C​l​e​a​r​ ​s​k​y
@@ -197,6 +201,10 @@ export type TranslationFunctions = {
 	 * Feels Like: {apparentTemperature|temperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
+	/**
+	 * Weather:
+	 */
+	WEATHER: () => LocalizedString
 	WMOWeatherCodes: {
 		/**
 		 * Clear sky

@@ -8,6 +8,7 @@ const ja: Translation = {
   TEMPERATURE: "気温: {temperature|temperature}°C",
   HUMIDITY: "湿度: {humidity}%",
   APPARENT_TEMPERATURE: "という感じです。: {apparentTemperature|temperature}°C",
+  WEATHER: "天気:",
   WMOWeatherCodes: {
     0: "快晴",
     1: "晴れ",
