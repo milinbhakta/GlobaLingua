@@ -2,7 +2,7 @@ import { Typography, Card, CardContent } from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
 import { useI18nContext } from "../i18n/i18n-react";
-import { WMOWeatherCodes } from "../utils/helper";
+import { Translation } from "../i18n/i18n-types";
 
 interface WeatherData {
   timezone: string | null;
@@ -14,7 +14,7 @@ interface WeatherData {
     temperature2m: number;
     relativeHumidity2m: number;
     apparentTemperature: number;
-    weatherCode: number;
+    weatherCode: keyof Translation["WMOWeatherCodes"];
   };
 }
 
@@ -39,7 +39,6 @@ function Weather() {
 
     async function fetchData() {
       const responses = await fetchWeatherApi(url, params);
-      console.log(responses);
       // Process first location. Add a for-loop for multiple locations or weather models
       const response = responses[0];
 
@@ -63,7 +62,10 @@ function Weather() {
           temperature2m: current.variables(0)!.value(),
           relativeHumidity2m: current.variables(1)!.value(),
           apparentTemperature: current.variables(2)!.value(),
-          weatherCode: current.variables(3)!.value(),
+          weatherCode: current
+            .variables(3)!
+            .value()
+            .toString() as keyof Translation["WMOWeatherCodes"],
         },
       };
 
@@ -100,7 +102,8 @@ function Weather() {
               })}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Weather code: {WMOWeatherCodes[weatherData.current.weatherCode as keyof typeof WMOWeatherCodes]}
+              Weather code:{" "}
+              {LL.WMOWeatherCodes[weatherData.current.weatherCode]()}
             </Typography>
           </CardContent>
         </Card>

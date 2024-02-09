@@ -17,7 +17,7 @@ export const getLocalName = (locale: string) => {
   }
 };
 
-export const WMOWeatherCodes = {
+export const WMOWeatherCodesURL = {
   0: "Clear sky",
   1: "Mainly clear",
   2: "Partly cloudy",
