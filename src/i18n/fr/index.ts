@@ -5,9 +5,9 @@ const fr: Translation = {
   APPNAME: "Application météo",
   HOURLY_WEATHER_FORECAST: "Prévisions météo horaires",
   TIME_LABEL: "Heure: {time|time}",
-  TEMPERATURE: "Température: {temperature}°C",
+  TEMPERATURE: "Température: {temperature|temperature}°C",
   HUMIDITY: "Humidité: {humidity}%",
-  APPARENT_TEMPERATURE: "Température apparente: {apparentTemperature}°C",
+  APPARENT_TEMPERATURE: "Température apparente: {apparentTemperature|temperature}°C",
 };
 
 export default fr;

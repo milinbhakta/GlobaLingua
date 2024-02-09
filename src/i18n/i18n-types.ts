@@ -37,20 +37,20 @@ type RootTranslation = {
 	 */
 	TIME_LABEL: RequiredParams<'time|time'>
 	/**
-	 * T​e​m​p​e​r​a​t​u​r​e​:​ ​{​t​e​m​p​e​r​a​t​u​r​e​}​°​C
+	 * T​e​m​p​e​r​a​t​u​r​e​:​ ​{​t​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
 	 * @param {Float32Array} temperature
 	 */
-	TEMPERATURE: RequiredParams<'temperature'>
+	TEMPERATURE: RequiredParams<'temperature|temperature'>
 	/**
 	 * H​u​m​i​d​i​t​y​:​ ​{​h​u​m​i​d​i​t​y​}​%
 	 * @param {Float32Array} humidity
 	 */
 	HUMIDITY: RequiredParams<'humidity'>
 	/**
-	 * A​p​p​a​r​e​n​t​ ​T​e​m​p​e​r​a​t​u​r​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​}​°​C
+	 * A​p​p​a​r​e​n​t​ ​T​e​m​p​e​r​a​t​u​r​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
 	 * @param {Float32Array} apparentTemperature
 	 */
-	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature'>
+	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
 }
 
 export type TranslationFunctions = {
@@ -71,7 +71,7 @@ export type TranslationFunctions = {
 	 */
 	TIME_LABEL: (arg: { time: Date }) => LocalizedString
 	/**
-	 * Temperature: {temperature}°C
+	 * Temperature: {temperature|temperature}°C
 	 */
 	TEMPERATURE: (arg: { temperature: Float32Array }) => LocalizedString
 	/**
@@ -79,11 +79,12 @@ export type TranslationFunctions = {
 	 */
 	HUMIDITY: (arg: { humidity: Float32Array }) => LocalizedString
 	/**
-	 * Apparent Temperature: {apparentTemperature}°C
+	 * Apparent Temperature: {apparentTemperature|temperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
 }
 
 export type Formatters = {
+	temperature: (value: Float32Array) => unknown
 	time: (value: Date) => unknown
 }
