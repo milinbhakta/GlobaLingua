@@ -2,6 +2,7 @@ import { Typography, Card, CardContent } from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
 import { useI18nContext } from "../i18n/i18n-react";
+import { WMOWeatherCodes } from "../utils/helper";
 
 interface WeatherData {
   timezone: string | null;
@@ -99,7 +100,7 @@ function Weather() {
               })}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Weather code: {weatherData.current.weatherCode}
+              Weather code: {WMOWeatherCodes[weatherData.current.weatherCode as keyof typeof WMOWeatherCodes]}
             </Typography>
           </CardContent>
         </Card>
