@@ -7,7 +7,7 @@ const ja: Translation = {
   TIME_LABEL: "時間: {time|time}",
   TEMPERATURE: "気温: {temperature|temperature}°C",
   HUMIDITY: "湿度: {humidity}%",
-  APPARENT_TEMPERATURE: "体感温度: {apparentTemperature|temperature}°C",
+  APPARENT_TEMPERATURE: "という感じです。: {apparentTemperature|temperature}°C",
   WMOWeatherCodes: {
     0: "快晴",
     1: "晴れ",

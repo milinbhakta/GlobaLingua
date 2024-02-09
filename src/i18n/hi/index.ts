@@ -7,7 +7,7 @@ const hi: Translation = {
   TIME_LABEL: "समय: {time|time}",
   TEMPERATURE: "तापमान: {temperature|temperature}°C",
   HUMIDITY: "नमी: {humidity}%",
-  APPARENT_TEMPERATURE: "अनुमानित तापमान: {apparentTemperature|temperature}°C",
+  APPARENT_TEMPERATURE: "ऐसा लगता है: {apparentTemperature|temperature}°C",
   WMOWeatherCodes: {
     0: "साफ आसमान",
     1: "मुख्य रूप से साफ",

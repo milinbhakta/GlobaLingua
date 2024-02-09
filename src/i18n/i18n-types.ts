@@ -48,7 +48,7 @@ type RootTranslation = {
 	 */
 	HUMIDITY: RequiredParams<'humidity'>
 	/**
-	 * A​p​p​a​r​e​n​t​ ​T​e​m​p​e​r​a​t​u​r​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
+	 * F​e​e​l​s​ ​L​i​k​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
 	 * @param {Float32Array} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
@@ -194,7 +194,7 @@ export type TranslationFunctions = {
 	 */
 	HUMIDITY: (arg: { humidity: Float32Array }) => LocalizedString
 	/**
-	 * Apparent Temperature: {apparentTemperature|temperature}°C
+	 * Feels Like: {apparentTemperature|temperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
 	WMOWeatherCodes: {

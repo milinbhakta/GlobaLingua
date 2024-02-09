@@ -7,8 +7,7 @@ const de: Translation = {
   TIME_LABEL: "Zeit: {time|time}",
   TEMPERATURE: "Temperatur: {temperature|temperature}°C",
   HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
-  APPARENT_TEMPERATURE:
-    "Gefühlte Temperatur: {apparentTemperature|temperature}°C",
+  APPARENT_TEMPERATURE: "Fühlt sich an wie: {apparentTemperature|temperature}°C",
   WMOWeatherCodes: {
     0: "Klarer Himmel",
     1: "Hauptsächlich klar",
