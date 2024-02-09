@@ -28,7 +28,7 @@ type RootTranslation = {
 	 */
 	APPNAME: string
 	/**
-	 * H​o​u​r​l​y​ ​W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t
+	 * H​o​u​r​l​y​ ​W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t​ ​f​o​r​ ​C​h​a​r​l​o​t​t​e​t​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
 	 */
 	HOURLY_WEATHER_FORECAST: string
 	/**
@@ -51,10 +51,6 @@ type RootTranslation = {
 	 * @param {Float32Array} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
-	/**
-	 * C​h​a​r​l​o​t​t​w​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
-	 */
-	CITY: string
 }
 
 export type TranslationFunctions = {
@@ -67,7 +63,7 @@ export type TranslationFunctions = {
 	 */
 	APPNAME: () => LocalizedString
 	/**
-	 * Hourly Weather Forecast
+	 * Hourly Weather Forecast for Charlottetown, PEI, Canada
 	 */
 	HOURLY_WEATHER_FORECAST: () => LocalizedString
 	/**
@@ -86,10 +82,6 @@ export type TranslationFunctions = {
 	 * Apparent Temperature: {apparentTemperature|temperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
-	/**
-	 * Charlottwown, PEI, Canada
-	 */
-	CITY: () => LocalizedString
 }
 
 export type Formatters = {

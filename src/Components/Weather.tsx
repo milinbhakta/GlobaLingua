@@ -75,8 +75,6 @@ function Weather() {
         },
       };
 
-      console.log(weatherData);
-
       setWeatherData(weatherData);
     }
 
