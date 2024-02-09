@@ -8,6 +8,7 @@ const hi: Translation = {
   TEMPERATURE: "तापमान: {temperature|temperature}°C",
   HUMIDITY: "नमी: {humidity}%",
   APPARENT_TEMPERATURE: "अनुमानित तापमान: {apparentTemperature|temperature}°C",
+  CITY: "चार्लोटटाउन, पीईआई, कनाडा",
 };
 
 export default hi;

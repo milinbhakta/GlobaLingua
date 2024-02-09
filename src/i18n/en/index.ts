@@ -9,6 +9,7 @@ const en: BaseTranslation = {
   HUMIDITY: "Humidity: {humidity:Float32Array}%",
   APPARENT_TEMPERATURE:
     "Apparent Temperature: {apparentTemperature:Float32Array|temperature}°C",
+  CITY: "Charlottwown, PEI, Canada",
 };
 
 export default en;

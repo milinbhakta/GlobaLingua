@@ -51,6 +51,10 @@ type RootTranslation = {
 	 * @param {Float32Array} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
+	/**
+	 * C​h​a​r​l​o​t​t​w​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
+	 */
+	CITY: string
 }
 
 export type TranslationFunctions = {
@@ -82,6 +86,10 @@ export type TranslationFunctions = {
 	 * Apparent Temperature: {apparentTemperature|temperature}°C
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
+	/**
+	 * Charlottwown, PEI, Canada
+	 */
+	CITY: () => LocalizedString
 }
 
 export type Formatters = {

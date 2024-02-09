@@ -8,6 +8,7 @@ const fr: Translation = {
   TEMPERATURE: "Température: {temperature|temperature}°C",
   HUMIDITY: "Humidité: {humidity}%",
   APPARENT_TEMPERATURE: "Température apparente: {apparentTemperature|temperature}°C",
+  CITY: "Charlottwown, PEI, Canada",
 };
 
 export default fr;

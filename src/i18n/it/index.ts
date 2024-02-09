@@ -7,7 +7,9 @@ const it: Translation = {
   TIME_LABEL: "Ora: {time|time}",
   TEMPERATURE: "Temperatura: {temperature|temperature}°C",
   HUMIDITY: "Umidità: {humidity}%",
-  APPARENT_TEMPERATURE: "Temperatura apparente: {apparentTemperature|temperature}°C",
+  APPARENT_TEMPERATURE:
+    "Temperatura apparente: {apparentTemperature|temperature}°C",
+  CITY: "Charlottwown, PEI, Canada",
 };
 
 export default it;
