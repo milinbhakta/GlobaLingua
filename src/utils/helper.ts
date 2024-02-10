@@ -14,6 +14,8 @@ export const getLocalName = (locale: string) => {
       return "Japanese";
     case "iw":
       return "Hebrew";
+    case "ru":
+      return "Russian";
     default:
       return "English";
   }

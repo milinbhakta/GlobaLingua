@@ -12,6 +12,7 @@ import hi from './hi/index.js'
 import it from './it/index.js'
 import iw from './iw/index.js'
 import ja from './ja/index.js'
+import ru from './ru/index.js'
 
 const localeTranslations = {
 	de,
@@ -21,6 +22,7 @@ const localeTranslations = {
 	it,
 	iw,
 	ja,
+	ru,
 }
 
 export const loadLocale = (locale: Locales): void => {

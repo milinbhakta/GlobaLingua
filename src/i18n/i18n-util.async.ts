@@ -13,6 +13,7 @@ const localeTranslationLoaders = {
 	it: () => import('./it/index.js'),
 	iw: () => import('./iw/index.js'),
 	ja: () => import('./ja/index.js'),
+	ru: () => import('./ru/index.js'),
 }
 
 const updateDictionary = (locale: Locales, dictionary: Partial<Translations>): Translations =>
