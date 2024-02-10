@@ -6,7 +6,6 @@ import {
   CardHeader,
   Grid,
   Container,
-  useTheme,
   FormControl,
   MenuItem,
   Select,
@@ -34,8 +33,6 @@ interface WeatherData {
 }
 
 function Weather() {
-  const theme = useTheme();
-
   const [city, setCity] = useState("ny");
 
   const handleCityChange = (event: SelectChangeEvent) => {
@@ -101,7 +98,7 @@ function Weather() {
             Number(hourly.timeEnd()),
             hourly.interval()
           ).map((t) => new Date((t + utcOffsetSeconds) * 1000)),
-          temperature2m: Array.from(hourly.variables(0)!.valuesArray()! ),
+          temperature2m: Array.from(hourly.variables(0)!.valuesArray()!),
           relativeHumidity2m: Array.from(hourly.variables(1)!.valuesArray()!),
           apparentTemperature: Array.from(hourly.variables(2)!.valuesArray()!),
           weatherCode: Array.from(hourly.variables(3)!.valuesArray()!),
@@ -146,7 +143,7 @@ function Weather() {
         </FormControl>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} paddingBottom={16}>
         {weatherData &&
           weatherData.hourly.time.map((data, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -157,7 +154,9 @@ function Weather() {
                   backgroundColor: "rgba(17, 25, 40, 0.5)",
                   borderRadius: "12px",
                   border: "1px solid rgba(255, 255, 255, 0.125)",
-                  color: theme.typography.body1.color,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
                 <CardHeader title={LL.TIME_LABEL({ time: data })} />
@@ -165,7 +164,7 @@ function Weather() {
                   component="img"
                   sx={{
                     height: 120,
-                    width: 120,
+                    width: "auto",
                     margin: "auto",
                   }}
                   image={

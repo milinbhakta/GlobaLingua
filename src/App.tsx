@@ -54,7 +54,7 @@ function App() {
           <Box
             sx={{
               flex: 1,
-              overflowY: "scroll",
+              overflow: "auto",
             }}
           >
             <Weather />
