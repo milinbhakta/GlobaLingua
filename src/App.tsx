@@ -7,13 +7,7 @@ import TypesafeI18n from "./i18n/i18n-react";
 import Weather from "./Components/Weather";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
-import {
-  Container,
-  Box,
-  Grid,
-  useMediaQuery,
-  CssBaseline,
-} from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import Header from "./Components/Header";
 
 const detectedLocale = detectLocale(localStorageDetector);
@@ -31,8 +25,6 @@ const theme = createTheme({
 
 function App() {
   const [wasLoaded, setWasLoaded] = useState(false);
-
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     loadLocaleAsync(detectedLocale).then(() => setWasLoaded(true));
@@ -53,23 +45,20 @@ function App() {
             "::backdrop": {
               backgroundColor: "rgba(0, 0, 0, 0.5)",
             },
+            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           <Header />
-          <Container>
-            <Box my={4}>
-              <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <div
-                    className="App"
-                    style={{ height: isSmallScreen ? "50vh" : "100vh" }}
-                  >
-                    <Weather />
-                  </div>
-                </Grid>
-              </Grid>
-            </Box>
-          </Container>
+          <Box
+            sx={{
+              flex: 1,
+              overflowY: "scroll",
+            }}
+          >
+            <Weather />
+          </Box>
         </Box>
       </TypesafeI18n>
     </ThemeProvider>
