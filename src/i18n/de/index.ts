@@ -3,12 +3,11 @@ import type { Translation } from "../i18n-types";
 const de: Translation = {
   CHOOSE_LOCALE: "Sprache auswählen",
   APPNAME: "Wetter App",
-  WEATHER_FORECAST: "Wettervorhersage für Charlottetown, PEI, Kanada",
   TIME_LABEL: "Zeit: {time|time}",
   TEMPERATURE: "Temperatur: {temperature|temperature}°C",
   HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
   APPARENT_TEMPERATURE: "Fühlt sich an wie: {apparentTemperature|temperature}°C",
-  WEATHER: "Wetter:",
+  WEATHER: "Wetter: ",
   WMOWeatherCodes: {
     0: "Klarer Himmel",
     1: "Hauptsächlich klar",

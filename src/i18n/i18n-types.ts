@@ -29,10 +29,6 @@ type RootTranslation = {
 	 */
 	APPNAME: string
 	/**
-	 * W​e​a​t​h​e​r​ ​F​o​r​e​c​a​s​t​ ​f​o​r​ ​C​h​a​r​l​o​t​t​e​t​o​w​n​,​ ​P​E​I​,​ ​C​a​n​a​d​a
-	 */
-	WEATHER_FORECAST: string
-	/**
 	 * T​i​m​e​:​ ​{​t​i​m​e​|​t​i​m​e​}
 	 * @param {Date} time
 	 */
@@ -53,7 +49,7 @@ type RootTranslation = {
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
 	/**
-	 * W​e​a​t​h​e​r​:
+	 * W​e​a​t​h​e​r​:​ 
 	 */
 	WEATHER: string
 	WMOWeatherCodes: {
@@ -182,10 +178,6 @@ export type TranslationFunctions = {
 	 */
 	APPNAME: () => LocalizedString
 	/**
-	 * Weather Forecast for Charlottetown, PEI, Canada
-	 */
-	WEATHER_FORECAST: () => LocalizedString
-	/**
 	 * Time: {time|time}
 	 */
 	TIME_LABEL: (arg: { time: Date }) => LocalizedString
@@ -202,7 +194,7 @@ export type TranslationFunctions = {
 	 */
 	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
 	/**
-	 * Weather:
+	 * Weather: 
 	 */
 	WEATHER: () => LocalizedString
 	WMOWeatherCodes: {
