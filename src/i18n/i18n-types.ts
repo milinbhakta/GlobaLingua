@@ -2,8 +2,6 @@
 /* eslint-disable */
 import type { BaseTranslation as BaseTranslationType, LocalizedString, RequiredParams } from 'typesafe-i18n'
 
-import type { Float32Array } from './custom-types'
-
 export type BaseTranslation = BaseTranslationType
 export type BaseLocale = 'en'
 
@@ -37,17 +35,17 @@ type RootTranslation = {
 	TIME_LABEL: RequiredParams<'time|time'>
 	/**
 	 * T​e​m​p​e​r​a​t​u​r​e​:​ ​{​t​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
-	 * @param {Float32Array} temperature
+	 * @param {number} temperature
 	 */
 	TEMPERATURE: RequiredParams<'temperature|temperature'>
 	/**
 	 * H​u​m​i​d​i​t​y​:​ ​{​h​u​m​i​d​i​t​y​}​%
-	 * @param {Float32Array} humidity
+	 * @param {number} humidity
 	 */
 	HUMIDITY: RequiredParams<'humidity'>
 	/**
 	 * F​e​e​l​s​ ​L​i​k​e​:​ ​{​a​p​p​a​r​e​n​t​T​e​m​p​e​r​a​t​u​r​e​|​t​e​m​p​e​r​a​t​u​r​e​}​°​C
-	 * @param {Float32Array} apparentTemperature
+	 * @param {number} apparentTemperature
 	 */
 	APPARENT_TEMPERATURE: RequiredParams<'apparentTemperature|temperature'>
 	/**
@@ -190,15 +188,15 @@ export type TranslationFunctions = {
 	/**
 	 * Temperature: {temperature|temperature}°C
 	 */
-	TEMPERATURE: (arg: { temperature: Float32Array }) => LocalizedString
+	TEMPERATURE: (arg: { temperature: number }) => LocalizedString
 	/**
 	 * Humidity: {humidity}%
 	 */
-	HUMIDITY: (arg: { humidity: Float32Array }) => LocalizedString
+	HUMIDITY: (arg: { humidity: number }) => LocalizedString
 	/**
 	 * Feels Like: {apparentTemperature|temperature}°C
 	 */
-	APPARENT_TEMPERATURE: (arg: { apparentTemperature: Float32Array }) => LocalizedString
+	APPARENT_TEMPERATURE: (arg: { apparentTemperature: number }) => LocalizedString
 	/**
 	 * Weather: 
 	 */
@@ -324,6 +322,6 @@ export type TranslationFunctions = {
 }
 
 export type Formatters = {
-	temperature: (value: Float32Array) => unknown
+	temperature: (value: number) => unknown
 	time: (value: Date) => unknown
 }

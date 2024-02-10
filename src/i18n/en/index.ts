@@ -4,10 +4,10 @@ const en: BaseTranslation = {
   CHOOSE_LOCALE: "Choose Locale",
   APPNAME: "Weather App",
   TIME_LABEL: "Time: {time:Date|time}",
-  TEMPERATURE: "Temperature: {temperature:Float32Array|temperature}°C",
-  HUMIDITY: "Humidity: {humidity:Float32Array}%",
+  TEMPERATURE: "Temperature: {temperature:number|temperature}°C",
+  HUMIDITY: "Humidity: {humidity:number}%",
   APPARENT_TEMPERATURE:
-    "Feels Like: {apparentTemperature:Float32Array|temperature}°C",
+    "Feels Like: {apparentTemperature:number|temperature}°C",
   WEATHER: "Weather: ",
   WMOWeatherCodes: {
     0: "Clear sky",
@@ -39,7 +39,7 @@ const en: BaseTranslation = {
     96: "Thunderstorm with slight hail",
     99: "Thunderstorm with heavy hail",
   },
-  SELECTLABEL:"Choose a city: ",
+  SELECTLABEL: "Choose a city: ",
 };
 
 export default en;
