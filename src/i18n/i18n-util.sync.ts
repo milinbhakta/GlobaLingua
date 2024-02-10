@@ -10,6 +10,7 @@ import en from './en/index.js'
 import fr from './fr/index.js'
 import hi from './hi/index.js'
 import it from './it/index.js'
+import iw from './iw/index.js'
 import ja from './ja/index.js'
 
 const localeTranslations = {
@@ -18,6 +19,7 @@ const localeTranslations = {
 	fr,
 	hi,
 	it,
+	iw,
 	ja,
 }
 

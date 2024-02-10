@@ -13,6 +13,7 @@ export type Locales =
 	| 'fr'
 	| 'hi'
 	| 'it'
+	| 'iw'
 	| 'ja'
 
 export type Translation = RootTranslation
