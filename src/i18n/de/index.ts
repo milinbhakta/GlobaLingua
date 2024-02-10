@@ -6,7 +6,8 @@ const de: Translation = {
   TIME_LABEL: "Zeit: {time|time}",
   TEMPERATURE: "Temperatur: {temperature|temperature}°C",
   HUMIDITY: "Luftfeuchtigkeit: {humidity}%",
-  APPARENT_TEMPERATURE: "Fühlt sich an wie: {apparentTemperature|temperature}°C",
+  APPARENT_TEMPERATURE:
+    "Fühlt sich an wie: {apparentTemperature|temperature}°C",
   WEATHER: "Wetter: ",
   WMOWeatherCodes: {
     0: "Klarer Himmel",
@@ -38,6 +39,7 @@ const de: Translation = {
     96: "Gewitter mit leichtem Hagel",
     99: "Gewitter mit starkem Hagel",
   },
+  SELECTLABEL:"Wähle eine Stadt: ",
 };
 
 export default de;

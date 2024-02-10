@@ -38,6 +38,7 @@ const ja: Translation = {
     96: "雷雨と軽い雹",
     99: "雷雨と大きな雹",
   },
+  SELECTLABEL:"都市を選択: ",
 };
 
 export default ja;

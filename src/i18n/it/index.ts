@@ -38,6 +38,7 @@ const it: Translation = {
     96: "Temporale con grandine leggera",
     99: "Temporale con grandine forte",
   },
+  SELECTLABEL:"Scegli una città: ",
 };
 
 export default it;

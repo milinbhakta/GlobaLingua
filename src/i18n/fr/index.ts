@@ -39,6 +39,7 @@ const fr: Translation = {
     96: "Orage avec grêle légère",
     99: "Orage avec grêle forte",
   },
+  SELECTLABEL:"Choisissez une ville: ",
 };
 
 export default fr;

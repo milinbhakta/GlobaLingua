@@ -131,7 +131,7 @@ function Weather() {
             alignItems: "center",
           }}
         >
-          <span>Choose a city: </span>
+          <Typography variant="h5">{LL.SELECTLABEL()}</Typography>
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <Select
               labelId="city-label"

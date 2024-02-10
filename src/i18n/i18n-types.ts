@@ -166,6 +166,10 @@ type RootTranslation = {
 		 */
 		'99': string
 	}
+	/**
+	 * C​h​o​o​s​e​ ​a​ ​c​i​t​y​:​ 
+	 */
+	SELECTLABEL: string
 }
 
 export type TranslationFunctions = {
@@ -311,6 +315,10 @@ export type TranslationFunctions = {
 		 */
 		'99': () => LocalizedString
 	}
+	/**
+	 * Choose a city: 
+	 */
+	SELECTLABEL: () => LocalizedString
 }
 
 export type Formatters = {

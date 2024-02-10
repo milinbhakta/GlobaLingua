@@ -38,6 +38,7 @@ const hi: Translation = {
     96: "बिजली की चमक के साथ हल्की आंधी",
     99: "बिजली की चमक के साथ भारी आंधी",
   },
+  SELECTLABEL:"एक शहर चुनें: ",
 };
 
 export default hi;

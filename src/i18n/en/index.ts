@@ -39,6 +39,7 @@ const en: BaseTranslation = {
     96: "Thunderstorm with slight hail",
     99: "Thunderstorm with heavy hail",
   },
+  SELECTLABEL:"Choose a city: ",
 };
 
 export default en;
