@@ -3,9 +3,10 @@ import {
   Card,
   CardContent,
   CardMedia,
-  styled,
   CardHeader,
   Grid,
+  Container,
+  useTheme,
 } from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
@@ -27,14 +28,9 @@ interface WeatherData {
   };
 }
 
-const StyledCard = styled(Card)`
-  max-width: 345px;
-  background-color: #f5f5f5;
-  border-radius: 15px;
-  box-shadow: 0 3px 5px 2px rgba(125, 123, 135, 0.3);
-`;
-
 function Weather() {
+  const theme = useTheme();
+
   // Helper function to form time ranges
   const range = (start: number, stop: number, step: number) =>
     Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
@@ -109,50 +105,68 @@ function Weather() {
         {LL.WEATHER_FORECAST()}
       </Typography>
       <div style={{ overflowY: "auto", maxHeight: "calc(100vh - 130px)" }}>
-        <Grid container spacing={3}>
-          {weatherData &&
-            weatherData.hourly.time.map((data, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <StyledCard>
-                  <CardHeader title={LL.TIME_LABEL({ time: data })} />
-                  <CardMedia
-                    component="img"
-                    sx={{ height: "100%" }}
-                    image={
-                      WMOWeatherCodesURL[weatherData.hourly.weatherCode[index]]
-                    }
-                    alt={getWeatherCodeDescription(
-                      weatherData.hourly.weatherCode[index]
-                    )}
-                  />
-                  <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      {LL.TEMPERATURE({
-                        temperature: weatherData.hourly.temperature2m[index],
-                      })}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {LL.HUMIDITY({
-                        humidity: weatherData.hourly.relativeHumidity2m[index],
-                      })}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {LL.APPARENT_TEMPERATURE({
-                        apparentTemperature:
-                          weatherData.hourly.apparentTemperature[index],
-                      })}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {LL.WEATHER()}
-                      {getWeatherCodeDescription(
+        <Container>
+          <Grid container spacing={3}>
+            {weatherData &&
+              weatherData.hourly.time.map((data, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card
+                    sx={{
+                      backdropFilter: "blur(50px) saturate(200%)",
+                      WebkitBackdropFilter: "blur(18px) saturate(200%)",
+                      backgroundColor: "rgba(17, 25, 40, 0.5)",
+                      borderRadius: "12px",
+                      border: "1px solid rgba(255, 255, 255, 0.125)",
+                      color: theme.typography.body1.color,
+                    }}
+                  >
+                    <CardHeader title={LL.TIME_LABEL({ time: data })} />
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        height: 120,
+                        width: 120,
+                        margin: "auto",
+                      }}
+                      image={
+                        WMOWeatherCodesURL[
+                          weatherData.hourly.weatherCode[index]
+                        ]
+                      }
+                      alt={getWeatherCodeDescription(
                         weatherData.hourly.weatherCode[index]
                       )}
-                    </Typography>
-                  </CardContent>
-                </StyledCard>
-              </Grid>
-            ))}
-        </Grid>
+                    />
+                    <CardContent>
+                      <Typography variant="body2">
+                        {LL.TEMPERATURE({
+                          temperature: weatherData.hourly.temperature2m[index],
+                        })}
+                      </Typography>
+                      <Typography variant="body2">
+                        {LL.HUMIDITY({
+                          humidity:
+                            weatherData.hourly.relativeHumidity2m[index],
+                        })}
+                      </Typography>
+                      <Typography variant="body2">
+                        {LL.APPARENT_TEMPERATURE({
+                          apparentTemperature:
+                            weatherData.hourly.apparentTemperature[index],
+                        })}
+                      </Typography>
+                      <Typography variant="body2">
+                        {LL.WEATHER()}
+                        {getWeatherCodeDescription(
+                          weatherData.hourly.weatherCode[index]
+                        )}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+          </Grid>
+        </Container>
       </div>
     </div>
   );
