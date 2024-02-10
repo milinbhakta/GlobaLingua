@@ -7,6 +7,11 @@ import {
   Grid,
   Container,
   useTheme,
+  FormControl,
+  MenuItem,
+  Select,
+  Box,
+  SelectChangeEvent,
 } from "@mui/material";
 import { fetchWeatherApi } from "openmeteo";
 import { useEffect, useState } from "react";
@@ -31,6 +36,12 @@ interface WeatherData {
 function Weather() {
   const theme = useTheme();
 
+  const [city, setCity] = useState("ny");
+
+  const handleCityChange = (event: SelectChangeEvent) => {
+    setCity(event.target.value as string);
+  };
+
   // Helper function to form time ranges
   const range = (start: number, stop: number, step: number) =>
     Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
@@ -40,10 +51,19 @@ function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherData>();
 
   useEffect(() => {
-    // Weather for Charlottetown, PE, Canada
+    const cities = {
+      ny: { latitude: 40.7128, longitude: -74.006 },
+      la: { latitude: 34.0522, longitude: -118.2437 },
+      ch: { latitude: 41.8781, longitude: -87.6298 },
+      sf: { latitude: 37.7749, longitude: -122.4194 },
+      cl: { latitude: 51.0447, longitude: -114.0719 },
+      fs: { latitude: 55.9833, longitude: -87.65 },
+      bom: { latitude: 19.076, longitude: 72.8777 },
+    };
+
     const params = {
-      latitude: 46.23525,
-      longitude: -63.12671,
+      latitude: cities[city as keyof typeof cities].latitude,
+      longitude: cities[city as keyof typeof cities].longitude,
       hourly: [
         "temperature_2m",
         "relative_humidity_2m",
@@ -91,7 +111,7 @@ function Weather() {
     }
 
     fetchData();
-  }, []);
+  }, [city]);
 
   const getWeatherCodeDescription = (code: number) => {
     return LL.WMOWeatherCodes[
@@ -100,74 +120,93 @@ function Weather() {
   };
 
   return (
-    <div>
-      <Typography variant="h5" gutterBottom>
-        {LL.WEATHER_FORECAST()}
-      </Typography>
-      <div style={{ overflowY: "auto", maxHeight: "calc(100vh - 130px)" }}>
-        <Container>
-          <Grid container spacing={3}>
-            {weatherData &&
-              weatherData.hourly.time.map((data, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card
+    <div style={{ overflowY: "auto", maxHeight: "calc(100vh - 100px)" }}>
+      <Container>
+        <Box
+          sx={{
+            margin: "auto",
+            padding: "10px",
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+          }}
+        >
+          <span>Choose a city: </span>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <Select
+              labelId="city-label"
+              value={city}
+              onChange={handleCityChange}
+            >
+              <MenuItem value="ny">New York</MenuItem>
+              <MenuItem value="la">Los Angeles</MenuItem>
+              <MenuItem value="ch">Chicago</MenuItem>
+              <MenuItem value="sf">San Francisco</MenuItem>
+              <MenuItem value="cl">Calgary</MenuItem>
+              <MenuItem value="fs">Fort Severn</MenuItem>
+              <MenuItem value="bom">Mumbai</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        <Grid container spacing={3}>
+          {weatherData &&
+            weatherData.hourly.time.map((data, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card
+                  sx={{
+                    backdropFilter: "blur(50px) saturate(200%)",
+                    WebkitBackdropFilter: "blur(18px) saturate(200%)",
+                    backgroundColor: "rgba(17, 25, 40, 0.5)",
+                    borderRadius: "12px",
+                    border: "1px solid rgba(255, 255, 255, 0.125)",
+                    color: theme.typography.body1.color,
+                  }}
+                >
+                  <CardHeader title={LL.TIME_LABEL({ time: data })} />
+                  <CardMedia
+                    component="img"
                     sx={{
-                      backdropFilter: "blur(50px) saturate(200%)",
-                      WebkitBackdropFilter: "blur(18px) saturate(200%)",
-                      backgroundColor: "rgba(17, 25, 40, 0.5)",
-                      borderRadius: "12px",
-                      border: "1px solid rgba(255, 255, 255, 0.125)",
-                      color: theme.typography.body1.color,
+                      height: 120,
+                      width: 120,
+                      margin: "auto",
                     }}
-                  >
-                    <CardHeader title={LL.TIME_LABEL({ time: data })} />
-                    <CardMedia
-                      component="img"
-                      sx={{
-                        height: 120,
-                        width: 120,
-                        margin: "auto",
-                      }}
-                      image={
-                        WMOWeatherCodesURL[
-                          weatherData.hourly.weatherCode[index]
-                        ]
-                      }
-                      alt={getWeatherCodeDescription(
+                    image={
+                      WMOWeatherCodesURL[weatherData.hourly.weatherCode[index]]
+                    }
+                    alt={getWeatherCodeDescription(
+                      weatherData.hourly.weatherCode[index]
+                    )}
+                  />
+                  <CardContent>
+                    <Typography variant="body2">
+                      {LL.TEMPERATURE({
+                        temperature: weatherData.hourly.temperature2m[index],
+                      })}
+                    </Typography>
+                    <Typography variant="body2">
+                      {LL.HUMIDITY({
+                        humidity: weatherData.hourly.relativeHumidity2m[index],
+                      })}
+                    </Typography>
+                    <Typography variant="body2">
+                      {LL.APPARENT_TEMPERATURE({
+                        apparentTemperature:
+                          weatherData.hourly.apparentTemperature[index],
+                      })}
+                    </Typography>
+                    <Typography variant="body2">
+                      {LL.WEATHER()}
+                      {getWeatherCodeDescription(
                         weatherData.hourly.weatherCode[index]
                       )}
-                    />
-                    <CardContent>
-                      <Typography variant="body2">
-                        {LL.TEMPERATURE({
-                          temperature: weatherData.hourly.temperature2m[index],
-                        })}
-                      </Typography>
-                      <Typography variant="body2">
-                        {LL.HUMIDITY({
-                          humidity:
-                            weatherData.hourly.relativeHumidity2m[index],
-                        })}
-                      </Typography>
-                      <Typography variant="body2">
-                        {LL.APPARENT_TEMPERATURE({
-                          apparentTemperature:
-                            weatherData.hourly.apparentTemperature[index],
-                        })}
-                      </Typography>
-                      <Typography variant="body2">
-                        {LL.WEATHER()}
-                        {getWeatherCodeDescription(
-                          weatherData.hourly.weatherCode[index]
-                        )}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-          </Grid>
-        </Container>
-      </div>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+        </Grid>
+      </Container>
     </div>
   );
 }
