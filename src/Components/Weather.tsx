@@ -57,6 +57,7 @@ function Weather() {
       fs: { latitude: 55.9833, longitude: -87.65 },
       bom: { latitude: 19.076, longitude: 72.8777 },
       mo: { latitude: 55.7558, longitude: 37.6176 },
+      char: { latitude: 46.2382, longitude: -63.1311 },
     };
 
     const params = {
@@ -132,6 +133,7 @@ function Weather() {
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <Select labelId="city-label" value={city} onChange={handleCityChange}>
             <MenuItem value="cl">Calgary</MenuItem>
+            <MenuItem value="char">Charlottetown</MenuItem>
             <MenuItem value="ch">Chicago</MenuItem>
             <MenuItem value="fs">Fort Severn</MenuItem>
             <MenuItem value="la">Los Angeles</MenuItem>
