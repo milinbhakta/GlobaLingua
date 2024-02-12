@@ -16,7 +16,3 @@ Provide step-by-step instructions to help others run your project locally.
 2. Navigate to the project directory: `cd globalingua`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run dev`
-
-## Authors
-
-- [Milin Bhakta](https://www.github.com/milinbhakta)
