@@ -41,7 +41,7 @@ export const WMOWeatherCodesURL: Record<string, string> = {
   "71": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/snow.svg",
   "73": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/snow.svg",
   "75": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/snow.svg",
-  "77": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/snow-grains.svg",
+  "77": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/snow.svg",
   "80": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/rain-showers.svg",
   "81": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/rain-showers.svg",
   "82": "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg/rain-showers.svg",
