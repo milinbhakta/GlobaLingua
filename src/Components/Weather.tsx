@@ -59,6 +59,9 @@ function Weather() {
       mo: { latitude: 55.7558, longitude: 37.6176 },
       char: { latitude: 46.2382, longitude: -63.1311 },
       su: { latitude: 21.1702, longitude: 72.8311 },
+      tul: { latitude: 36.154, longitude: -95.9928 },
+      hou: { latitude: 29.7604, longitude: -95.3698 },
+      wic: { latitude: 37.6872, longitude: -97.3301 },
     };
 
     const params = {
@@ -137,12 +140,15 @@ function Weather() {
             <MenuItem value="char">Charlottetown</MenuItem>
             <MenuItem value="ch">Chicago</MenuItem>
             <MenuItem value="fs">Fort Severn</MenuItem>
+            <MenuItem value="hou">Houston</MenuItem>
             <MenuItem value="la">Los Angeles</MenuItem>
             <MenuItem value="mo">Moscow</MenuItem>
             <MenuItem value="bom">Mumbai</MenuItem>
             <MenuItem value="ny">New York</MenuItem>
             <MenuItem value="sf">San Francisco</MenuItem>
             <MenuItem value="su">Surat</MenuItem>
+            <MenuItem value="tul">Tulsa</MenuItem>
+            <MenuItem value="wic">Wichita</MenuItem>
           </Select>
         </FormControl>
       </Box>
