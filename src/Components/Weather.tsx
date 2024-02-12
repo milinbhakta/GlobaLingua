@@ -58,6 +58,7 @@ function Weather() {
       bom: { latitude: 19.076, longitude: 72.8777 },
       mo: { latitude: 55.7558, longitude: 37.6176 },
       char: { latitude: 46.2382, longitude: -63.1311 },
+      su: { latitude: 21.1702, longitude: 72.8311 },
     };
 
     const params = {
@@ -141,6 +142,7 @@ function Weather() {
             <MenuItem value="bom">Mumbai</MenuItem>
             <MenuItem value="ny">New York</MenuItem>
             <MenuItem value="sf">San Francisco</MenuItem>
+            <MenuItem value="su">Surat</MenuItem>
           </Select>
         </FormControl>
       </Box>
