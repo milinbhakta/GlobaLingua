@@ -16,3 +16,6 @@ Globalingua is a web application that demonstrates the use of internationalizati
 2. Navigate to the project directory: `cd globalingua`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run dev`
+
+## Author
+- MilinBhakta
