@@ -18,4 +18,4 @@ Globalingua is a web application that demonstrates the use of internationalizati
 4. Start the development server: `npm run dev`
 
 ## Author
-- MilinBhakta
+- Milin Bhakta
