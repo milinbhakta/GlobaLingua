@@ -59,6 +59,7 @@ function Weather() {
       mo: { latitude: 55.7558, longitude: 37.6176 },
       char: { latitude: 46.2382, longitude: -63.1311 },
       su: { latitude: 21.1702, longitude: 72.8311 },
+      tor: { latitude: 43.6511, longitude: -79.3832 },
       tul: { latitude: 36.154, longitude: -95.9928 },
       hou: { latitude: 29.7604, longitude: -95.3698 },
       wic: { latitude: 37.6872, longitude: -97.3301 },
@@ -147,8 +148,9 @@ function Weather() {
             <MenuItem value="ny">New York</MenuItem>
             <MenuItem value="sf">San Francisco</MenuItem>
             <MenuItem value="su">Surat</MenuItem>
+            <MenuItem value="tor">Toronto</MenuItem>
             <MenuItem value="tul">Tulsa</MenuItem>
-            <MenuItem value="wic">Wichita</MenuItem>
+            <MenuItem value="wic">Wichita</MenuItem>            
           </Select>
         </FormControl>
       </Box>
