@@ -63,6 +63,7 @@ function Weather() {
       tul: { latitude: 36.154, longitude: -95.9928 },
       hou: { latitude: 29.7604, longitude: -95.3698 },
       wic: { latitude: 37.6872, longitude: -97.3301 },
+      wi: { latitude: 42.3149, longitude: -83.0364 },
     };
 
     const params = {
@@ -150,7 +151,8 @@ function Weather() {
             <MenuItem value="su">Surat</MenuItem>
             <MenuItem value="tor">Toronto</MenuItem>
             <MenuItem value="tul">Tulsa</MenuItem>
-            <MenuItem value="wic">Wichita</MenuItem>            
+            <MenuItem value="wic">Wichita</MenuItem>
+            <MenuItem value="wi">Windsor, Ontario</MenuItem>
           </Select>
         </FormControl>
       </Box>
