@@ -1,10 +1,14 @@
 import type { FormattersInitializer } from 'typesafe-i18n'
 import type { Formatters, Locales } from './i18n-types'
 
-export const initFormatters: FormattersInitializer<Locales, Formatters> = (
+type BaseFormatters = {
+  [key: string]: (value: any) => string
+}
+
+export const initFormatters: FormattersInitializer<Locales, Formatters & BaseFormatters> = (
   locale: Locales,
 ) => {
-  const formatters: Formatters = {
+  const formatters: Formatters & BaseFormatters = {
     time: (date: Date) =>
       new Intl.DateTimeFormat(locale, {
         dateStyle: 'full',
