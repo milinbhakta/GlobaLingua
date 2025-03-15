@@ -122,7 +122,7 @@ function Weather() {
 
   const getWeatherCodeDescription = (code: number) => {
     return LL.WMOWeatherCodes[
-      code as unknown as string as keyof Translation['WMOWeatherCodes']
+      code as unknown as keyof Translation['WMOWeatherCodes']
     ]()
   }
 
