@@ -1,51 +1,53 @@
+import type {
+  SelectChangeEvent,
+} from '@mui/material'
+import type { Translation } from '../i18n/i18n-types'
 import {
-  Typography,
+  Box,
   Card,
   CardContent,
-  CardMedia,
   CardHeader,
-  Grid,
+  CardMedia,
   Container,
   FormControl,
+  Grid,
   MenuItem,
   Select,
-  Box,
-  SelectChangeEvent,
-} from "@mui/material";
-import { fetchWeatherApi } from "openmeteo";
-import { useEffect, useState } from "react";
-import { useI18nContext } from "../i18n/i18n-react";
-import { Translation } from "../i18n/i18n-types";
-import { WMOWeatherCodesURL } from "../utils/helper";
+  Typography,
+} from '@mui/material'
+import { fetchWeatherApi } from 'openmeteo'
+import { useEffect, useState } from 'react'
+import { useI18nContext } from '../i18n/i18n-react'
+import { WMOWeatherCodesURL } from '../utils/helper'
 
 interface WeatherData {
-  timezone: string | null;
-  timezoneAbbreviation: string | null;
-  latitude: number;
-  longitude: number;
+  timezone: string | null
+  timezoneAbbreviation: string | null
+  latitude: number
+  longitude: number
   hourly: {
-    time: Date[];
-    temperature2m: number[];
-    relativeHumidity2m: number[];
-    apparentTemperature: number[];
-    weatherCode: number[];
-  };
+    time: Date[]
+    temperature2m: number[]
+    relativeHumidity2m: number[]
+    apparentTemperature: number[]
+    weatherCode: number[]
+  }
 }
 
 function Weather() {
-  const [city, setCity] = useState("ny");
+  const [city, setCity] = useState('ny')
 
   const handleCityChange = (event: SelectChangeEvent) => {
-    setCity(event.target.value as string);
-  };
+    setCity(event.target.value as string)
+  }
 
   // Helper function to form time ranges
   const range = (start: number, stop: number, step: number) =>
-    Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
+    Array.from({ length: (stop - start) / step }, (_, i) => start + i * step)
 
-  const { LL } = useI18nContext();
+  const { LL } = useI18nContext()
 
-  const [weatherData, setWeatherData] = useState<WeatherData>();
+  const [weatherData, setWeatherData] = useState<WeatherData>()
 
   useEffect(() => {
     const cities = {
@@ -64,34 +66,34 @@ function Weather() {
       hou: { latitude: 29.7604, longitude: -95.3698 },
       wic: { latitude: 37.6872, longitude: -97.3301 },
       wi: { latitude: 42.3149, longitude: -83.0364 },
-    };
+    }
 
     const params = {
       latitude: cities[city as keyof typeof cities].latitude,
       longitude: cities[city as keyof typeof cities].longitude,
       hourly: [
-        "temperature_2m",
-        "relative_humidity_2m",
-        "apparent_temperature",
-        "weather_code",
+        'temperature_2m',
+        'relative_humidity_2m',
+        'apparent_temperature',
+        'weather_code',
       ],
       forecast_days: 1,
-    };
-    const url = "https://api.open-meteo.com/v1/forecast";
+    }
+    const url = 'https://api.open-meteo.com/v1/forecast'
 
     async function fetchData() {
-      const responses = await fetchWeatherApi(url, params);
+      const responses = await fetchWeatherApi(url, params)
       // Process first location. Add a for-loop for multiple locations or weather models
-      const response = responses[0];
+      const response = responses[0]
 
       // Attributes for timezone and location
-      const utcOffsetSeconds = response.utcOffsetSeconds();
-      const timezone = response.timezone();
-      const timezoneAbbreviation = response.timezoneAbbreviation();
-      const latitude = response.latitude();
-      const longitude = response.longitude();
+      const utcOffsetSeconds = response.utcOffsetSeconds()
+      const timezone = response.timezone()
+      const timezoneAbbreviation = response.timezoneAbbreviation()
+      const latitude = response.latitude()
+      const longitude = response.longitude()
 
-      const hourly = response.hourly()!;
+      const hourly = response.hourly()!
 
       // Note: The order of weather variables in the URL query and the indices below need to match!
       const weatherData: WeatherData = {
@@ -103,36 +105,36 @@ function Weather() {
           time: range(
             Number(hourly.time()),
             Number(hourly.timeEnd()),
-            hourly.interval()
-          ).map((t) => new Date((t + utcOffsetSeconds) * 1000)),
+            hourly.interval(),
+          ).map(t => new Date((t + utcOffsetSeconds) * 1000)),
           temperature2m: Array.from(hourly.variables(0)!.valuesArray()!),
           relativeHumidity2m: Array.from(hourly.variables(1)!.valuesArray()!),
           apparentTemperature: Array.from(hourly.variables(2)!.valuesArray()!),
           weatherCode: Array.from(hourly.variables(3)!.valuesArray()!),
         },
-      };
+      }
 
-      setWeatherData(weatherData);
+      setWeatherData(weatherData)
     }
 
-    fetchData();
-  }, [city]);
+    fetchData()
+  }, [city])
 
   const getWeatherCodeDescription = (code: number) => {
     return LL.WMOWeatherCodes[
-      code as unknown as string as keyof Translation["WMOWeatherCodes"]
-    ]();
-  };
+      code as unknown as string as keyof Translation['WMOWeatherCodes']
+    ]()
+  }
 
   return (
-    <Container style={{ overflowY: "auto" }}>
+    <Container style={{ overflowY: 'auto' }}>
       <Box
         sx={{
-          margin: "auto",
-          padding: "10px",
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
+          margin: 'auto',
+          padding: '10px',
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
         }}
       >
         <Typography variant="h5">{LL.SELECTLABEL()}</Typography>
@@ -158,19 +160,19 @@ function Weather() {
       </Box>
 
       <Grid container spacing={3} paddingBottom={16}>
-        {weatherData &&
-          weatherData.hourly.time.map((data, index) => (
+        {weatherData
+          && weatherData.hourly.time.map((data, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 sx={{
-                  backdropFilter: "blur(50px) saturate(200%)",
-                  WebkitBackdropFilter: "blur(18px) saturate(200%)",
-                  backgroundColor: "rgba(17, 25, 40, 0.5)",
-                  borderRadius: "12px",
-                  border: "1px solid rgba(255, 255, 255, 0.125)",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
+                  backdropFilter: 'blur(50px) saturate(200%)',
+                  WebkitBackdropFilter: 'blur(18px) saturate(200%)',
+                  backgroundColor: 'rgba(17, 25, 40, 0.5)',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 255, 255, 0.125)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}
               >
                 <CardHeader title={LL.TIME_LABEL({ time: data })} />
@@ -178,14 +180,14 @@ function Weather() {
                   component="img"
                   sx={{
                     height: 120,
-                    width: "auto",
-                    margin: "auto",
+                    width: 'auto',
+                    margin: 'auto',
                   }}
                   image={
                     WMOWeatherCodesURL[weatherData.hourly.weatherCode[index]]
                   }
                   alt={getWeatherCodeDescription(
-                    weatherData.hourly.weatherCode[index]
+                    weatherData.hourly.weatherCode[index],
                   )}
                 />
                 <CardContent>
@@ -208,7 +210,7 @@ function Weather() {
                   <Typography variant="body2">
                     {LL.WEATHER()}
                     {getWeatherCodeDescription(
-                      weatherData.hourly.weatherCode[index]
+                      weatherData.hourly.weatherCode[index],
                     )}
                   </Typography>
                 </CardContent>
@@ -217,7 +219,7 @@ function Weather() {
           ))}
       </Grid>
     </Container>
-  );
+  )
 }
 
-export default Weather;
+export default Weather
